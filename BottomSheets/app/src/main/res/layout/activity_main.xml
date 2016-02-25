@@ -152,7 +152,7 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="550dp"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
         android:background="?attr/colorAccent"
         >

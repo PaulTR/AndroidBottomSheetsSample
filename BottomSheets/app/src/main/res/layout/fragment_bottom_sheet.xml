@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is a test dialog fragment"
-        style="@style/BottomSheetTextView"/>
+        style="@style/BottomSheetTextView"
+        android:background="@android:color/holo_purple"/>
 
     <ImageView
         android:layout_width="match_parent"
