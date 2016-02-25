@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View mBottomSheet;
     private BottomSheetBehavior mBottomSheetBehavior;
 
-    private FloatingActionButton mFloatingActionButton;
 
     private CardView mCardView1;
     private CardView mCardView2;
@@ -35,9 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e("Bottom Sheet", "onStateChanged");
                 if( newState == BottomSheetBehavior.STATE_COLLAPSED ) {
                     mBottomSheetBehavior.setPeekHeight(0);
-                    mFloatingActionButton.setVisibility( View.VISIBLE );
-                } else if( newState == BottomSheetBehavior.STATE_EXPANDED ) {
-                    mFloatingActionButton.setVisibility( View.GONE );
                 }
             }
 
@@ -50,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-        mFloatingActionButton = (FloatingActionButton) findViewById( R.id.fab );
         mBottomSheet = findViewById( R.id.bottom_sheet );
         mCardView1 = (CardView) findViewById( R.id.card_1 );
         mCardView2 = (CardView) findViewById( R.id.card_2 );
