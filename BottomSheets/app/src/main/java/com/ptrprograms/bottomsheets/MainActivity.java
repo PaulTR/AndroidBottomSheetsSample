@@ -83,6 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showBottomSheetFromLayout( int color ) {
         mBottomSheet.setBackgroundColor( color );
         mBottomSheetBehavior.setPeekHeight(300);
-        mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_EXPANDED);
+        mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_COLLAPSED);
     }
 }
