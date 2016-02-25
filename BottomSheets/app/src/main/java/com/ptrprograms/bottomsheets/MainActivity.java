@@ -2,9 +2,8 @@ package com.ptrprograms.bottomsheets;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -15,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View mBottomSheet;
     private BottomSheetBehavior mBottomSheetBehavior;
 
+    private FloatingActionButton mFloatingActionButton;
 
     private CardView mCardView1;
     private CardView mCardView2;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
         mBottomSheet = findViewById( R.id.bottom_sheet );
+        mFloatingActionButton = (FloatingActionButton) findViewById( R.id.fab );
         mCardView1 = (CardView) findViewById( R.id.card_1 );
         mCardView2 = (CardView) findViewById( R.id.card_2 );
         mCardView3 = (CardView) findViewById( R.id.card_3 );
@@ -54,25 +55,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mCardView1.setOnClickListener(this);
         mCardView2.setOnClickListener(this);
         mCardView3.setOnClickListener(this);
+        mFloatingActionButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch( v.getId() ) {
             case R.id.card_1: {
-                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_green_dark));
+                showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_green_dark) );
                 break;
             }
             case R.id.card_2: {
-                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
+                showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_blue_dark) );
                 break;
             }
             case R.id.card_3: {
-                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_red_dark) );
+                showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_red_dark) );
                 break;
             }
-
+            case R.id.fab: {
+                if( mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED ) {
+                    mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_COLLAPSED );
+                }
+                BottomSheetDialogFragment bottomSheetDialogFragment = new PTRBottomSheetDialogFragment();
+                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+            }
         }
+    }
+
+    private void showBottomSheetFromLayout( int color ) {
+        mBottomSheet.setBackgroundColor( color );
         mBottomSheetBehavior.setPeekHeight(300);
         mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_COLLAPSED);
     }
