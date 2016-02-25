@@ -60,15 +60,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch( v.getId() ) {
             case R.id.card_1: {
-                mBottomSheet.setBackgroundColor( getColor(android.R.color.holo_green_dark));
+                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_green_dark));
                 break;
             }
             case R.id.card_2: {
-                mBottomSheet.setBackgroundColor( getColor(android.R.color.holo_blue_dark) );
+                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
                 break;
             }
             case R.id.card_3: {
-                mBottomSheet.setBackgroundColor( getColor(android.R.color.holo_red_dark) );
+                mBottomSheet.setBackgroundColor( getResources().getColor(android.R.color.holo_red_dark) );
                 break;
             }
 
