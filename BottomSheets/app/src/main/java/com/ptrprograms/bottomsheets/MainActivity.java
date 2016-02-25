@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
                 Log.e("Bottom Sheet", "onStateChanged");
-                if( newState == BottomSheetBehavior.STATE_COLLAPSED ) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                     mBottomSheetBehavior.setPeekHeight(0);
                 }
             }
@@ -74,9 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.fab: {
-                if( mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED ) {
-                    mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_COLLAPSED );
-                }
                 BottomSheetDialogFragment bottomSheetDialogFragment = new PTRBottomSheetDialogFragment();
                 bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
             }
@@ -86,6 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showBottomSheetFromLayout( int color ) {
         mBottomSheet.setBackgroundColor( color );
         mBottomSheetBehavior.setPeekHeight(300);
-        mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_COLLAPSED);
+        mBottomSheetBehavior.setState( BottomSheetBehavior.STATE_EXPANDED);
     }
 }
