@@ -10,21 +10,19 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private View mBottomSheet;
     private BottomSheetBehavior mBottomSheetBehavior;
 
-    private FloatingActionButton mFloatingActionButton;
-
-    private CardView mCardView1;
-    private CardView mCardView2;
-    private CardView mCardView3;
+    private Button mButton1;
+    private Button mButton2;
+    private Button mButton3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.e( "night", "Night mode: " + ((getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES ));
@@ -51,36 +49,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
         mBottomSheet = findViewById( R.id.bottom_sheet );
-        mFloatingActionButton = (FloatingActionButton) findViewById( R.id.fab );
-        mCardView1 = (CardView) findViewById( R.id.card_1 );
-        mCardView2 = (CardView) findViewById( R.id.card_2 );
-        mCardView3 = (CardView) findViewById( R.id.card_3 );
+        mButton1 = (Button) findViewById( R.id.button_1 );
+        mButton2 = (Button) findViewById( R.id.button_2 );
+        mButton3 = (Button) findViewById( R.id.button_3 );
 
-        mCardView1.setOnClickListener(this);
-        mCardView2.setOnClickListener(this);
-        mCardView3.setOnClickListener(this);
-        mFloatingActionButton.setOnClickListener(this);
+        mButton1.setOnClickListener(this);
+        mButton2.setOnClickListener(this);
+        mButton3.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch( v.getId() ) {
-            case R.id.card_1: {
+            case R.id.button_1: {
                 showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_green_dark) );
                 break;
             }
-            case R.id.card_2: {
+            case R.id.button_2: {
                 showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_blue_dark) );
                 break;
             }
-            case R.id.card_3: {
+            case R.id.button_3: {
                 showBottomSheetFromLayout( getResources().getColor(android.R.color.holo_red_dark) );
                 break;
             }
-            case R.id.fab: {
-                BottomSheetDialogFragment bottomSheetDialogFragment = new PTRBottomSheetDialogFragment();
-                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
-            }
+                //BottomSheetDialogFragment bottomSheetDialogFragment = new PTRBottomSheetDialogFragment();
+                //bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
         }
     }
 
